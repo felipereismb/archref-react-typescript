@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useAuth } from '../../hooks/Auth/auth';
+import { useAuth } from '../../hooks/Auth';
 
 import { Container } from './styles';
 
