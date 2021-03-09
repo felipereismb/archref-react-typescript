@@ -34,8 +34,8 @@ const AuthContext = createContext<IAuthContextData>({} as IAuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
   const [data, setData] = useState<IAuthState>(() => {
-    const access_token = localStorage.getItem('@AuttarConciliador:token');
-    const user = localStorage.getItem('@AuttarConciliador:user');
+    const access_token = localStorage.getItem('@YourAplication:token');
+    const user = localStorage.getItem('@YourAplication:user');
 
     if (access_token && user) {
       api.defaults.headers.authorization = `Bearer ${access_token}`;
@@ -45,7 +45,6 @@ const AuthProvider: React.FC = ({ children }) => {
 
     return {} as IAuthState;
   });
-  const [req, setReq] = useState(false);
 
   const signIn = useCallback(async ({ login, password }) => {
     const response = await api.post('/v1/authorizations', {
@@ -54,18 +53,15 @@ const AuthProvider: React.FC = ({ children }) => {
     });
 
     const { access_token } = response.data;
-
-    localStorage.setItem('@AuttarConciliador:token', access_token);
-
     const secondResponse = await api.post('/v1/authorizations/login', {
       access_token,
     });
 
     const { login: userLogin, name, type } = secondResponse.data;
-
     const user = { userLogin, name, type };
 
-    localStorage.setItem('@AuttarConciliador:user', JSON.stringify(user));
+    localStorage.setItem('@YourAplication:token', access_token);
+    localStorage.setItem('@YourAplication:user', JSON.stringify(user));
 
     api.defaults.headers.authorization = access_token;
 
