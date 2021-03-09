@@ -1,0 +1,107 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier",
+    "jsx-a11y"
+  ],
+  "rules": {
+    "import/no-extraneous-dependencies": "off",
+    "no-use-before-define": "off",
+    "import/no-cycle": "off",
+    "react/prop-types": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "import/prefer-default-export": "off",
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-var-requires": "off",
+    "react/jsx-props-no-spreading": "off",
+    "camelcase": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "directory": "."
+      },
+      "node": {
+        "extensions": [".ts", ".tsx", ".js", ".jsx"]
+      },
+      "babel-plugin-root-import": {
+        "paths": [
+          {
+            "rootPathSuffix": "src"
+          },
+          {
+            "rootPathPrefix": "@assets/",
+            "rootPathSuffix": "src/assets/"
+          },
+          {
+            "rootPathPrefix": "@components/",
+            "rootPathSuffix": "src/components"
+          },
+          {
+            "rootPathPrefix": "@hooks/",
+            "rootPathSuffix": "src/hooks"
+          },
+          {
+            "rootPathPrefix": "@pages/",
+            "rootPathSuffix": "src/pages"
+          },
+          {
+            "rootPathPrefix": "@routes/",
+            "rootPathSuffix": "src/routes"
+          },
+          {
+            "rootPathPrefix": "@services/",
+            "rootPathSuffix": "src/services"
+          },
+          {
+            "rootPathPrefix": "@styles/",
+            "rootPathSuffix": "src/styles"
+          },
+          {
+            "rootPathPrefix": "@utils/",
+            "rootPathSuffix": "src/utils"
+          }
+        ]
+      }
+    }
+  }
+}
