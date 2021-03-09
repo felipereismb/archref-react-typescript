@@ -6,6 +6,10 @@ Reference architecture without using the 'create-react app', containing webpack 
 
 Contains husky configured to run pre push and pre commit, together with JEST, also configured.
 
+## Install
+
+`yarn`
+
 ## Develop
 
 `yarn start-des`
